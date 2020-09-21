@@ -68,7 +68,7 @@ function setup() {
   bFisrtfFrame = false;
   w = schematic.width;
   secPerPx = music.duration()/w;
-  music.loop(); 
+  
 
 
   //  createCanvas(displayWidth, displayHeight);
@@ -105,6 +105,7 @@ function setup() {
   }
   adjustZoom();
   createCanvas(cw, ch);
+  music.loop(); 
 }
 
 
