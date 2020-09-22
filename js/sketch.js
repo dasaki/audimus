@@ -234,9 +234,9 @@ function draw() {
     
   }
 
-fill(255);
-  textSize(20);
-  text('cTotal '+cTotal+', claves length '+claves.length+' currClave '+currClave+' currPos '+int(currPxPos/pxPerPos)+' ms '+int(music.time()*1000)+' targetms'+targetMs, 10, 22);//(currPxPos + dragDist)*secPerPx, 10, 22);
+//fill(255);
+  //textSize(20);
+  //text('cTotal '+cTotal+', claves length '+claves.length+' currClave '+currClave+' currPos '+int(currPxPos/pxPerPos)+' ms '+int(music.time()*1000)+' targetms'+targetMs, 10, 22);//(currPxPos + dragDist)*secPerPx, 10, 22);
 
   translate((cw - schematic_split.width * zoom) / 2, schematic.height + gap);
   scale(zoom, zoom);
