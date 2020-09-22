@@ -25,8 +25,6 @@ let zoom;
 let gap = 25;
 let spaceX;
 let spaceY;
-var shape = ['circle', 'triangle', 'square', 'pentagon', 'star'];
-var gui;
 let slices;
 let score;
 let claves;
@@ -146,8 +144,6 @@ function setup() {
 
   prepare();
 
-  gui = createGui('Layout');
-  gui.addGlobals('shape');
 
   adjustZoom();
   createCanvas(cw, ch);
