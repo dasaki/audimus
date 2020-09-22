@@ -42,7 +42,7 @@ let currPxPerMs = 0;
 function preload() {
   xml = loadXML('images/chop70_1.xml');
   schematic = loadImage('images/chop70_1.jpg');
-
+  music = createAudio('audio/chop70_1.mp3');
 }
 
 
@@ -140,7 +140,7 @@ function adjustZoom() {
 
 function setup() {
 
-    music = createAudio('audio/chop70_1.mp3');
+  
 
   prepare();
 
