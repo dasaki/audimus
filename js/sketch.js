@@ -5,7 +5,7 @@ let ch;
 let w;
 let h = 100;
 let chc;
-let leftPos = 0;
+let currPxPos = 0;
 let topPos = (ch - h) / 2;
 let mouseDownX = 0;
 let songDownPos = 0;
@@ -37,7 +37,7 @@ let currPosB = 0;
 let currMsA = 0;
 let currMsB = 0;
 let currPxPerMs = 0;
-
+let targetMs = 0;
 
 function preload() {
   xml = loadXML('images/chop70_1.xml');
@@ -54,10 +54,12 @@ function setSlice(newSlice) {
 }
 
 function setClave(newClave) {
-  if ((newClave >= 0) && (newClave < claves.length-1)) {
+  if ((newClave >= 0) && (newClave < claves.length)) {
      currClave = newClave;
-     if (currClave >= cTotal-1) {
+     if (currClave >= claves.length-1) {
       music.stop();
+      bMusicPlaying = false;
+      currPxPos = 0;
       setClave(0);
      }
      else {
@@ -84,7 +86,7 @@ function prepare() {
   cTotal = score.getNum('cTotal');
   posTotal = score.getNum('posTotal');
   pxTotal = score.getNum('pxTotal');
-  pxPerPos = pxTotal / posTotal;
+  pxPerPos = w / posTotal;
   setSlice(0);
   
   // find width of the widest slice
@@ -95,13 +97,13 @@ function prepare() {
     if (sw > maxW) maxW = sw;
   }
   // create and fill image of slices and add keypoints to music
-  schematic_split = createImage(maxW, schematic.height * (slices.length - 1));
+  schematic_split = createImage(maxW, schematic.height*1.05 * (slices.length - 1));
   for (let i = 1; i < slices.length; i++) {
     let sx = pxPerPos * slices[i - 1].getNum('pos');
     let sw = pxPerPos * slices[i].getNum('pos') - sx;
     if (sw > maxW) maxW = sw;
     let value = slices[i - 1].getString('value');
-    schematic_split.copy(schematic, sx, 0, sw, schematic.height, 0, (i - 1) * schematic.height, sw, schematic.height);
+    schematic_split.copy(schematic, sx, 0, sw, schematic.height, 0, (i - 1) * schematic.height*1.05, sw, schematic.height);
    // text(value, 100, i*(schematic.height+22));
   }
 
@@ -117,8 +119,8 @@ function windowResized() {
 
 
 function adjustZoom() {
-  cw = windowWidth - 2 * gap;
-  ch = windowHeight - gap;
+  cw = windowWidth * 0.98;
+  ch = windowHeight *0.99;
   chc = cw / 2;
 
   spaceX = cw - 2 * gap;
@@ -139,26 +141,21 @@ function adjustZoom() {
 }
 
 function setup() {
-
-  
-
   prepare();
-
-
   adjustZoom();
   createCanvas(cw, ch);
-  background(255, 0, 255);
+  background(0);
   music.play();
   bMusicPlaying = true;
 }
 
 
 function mousePressed() {
- // if (music.isPlaying()) {
+  if (bMusicPlaying) {
     // .isPlaying() returns a boolean
     music.stop(); // .play() will resume from .pause() slice
     bMusicPlaying = false;
- // }
+  }
   mouseDownX = mouseX;
 //  musicDownPos = music.currentTime();
   musicDownPos = music.time();
@@ -169,10 +166,12 @@ function mouseClicked() {
   if (music.isPlaying()) {
     // .isPlaying() returns a boolean
     music.pause(); // .play() will resume from .pause() slice
-    background(255, 0, 0);
+      background(0);
+
   } else {
     music.play();
-    background(0, 255, 0);
+      background(0);
+
   }
   */
 }
@@ -180,9 +179,9 @@ function mouseClicked() {
 function mouseDragged() {
   let tempDragDist = mouseDownX - mouseX;
 
-  let newPos = leftPos + tempDragDist;
-  if (newPos > w) dragDist = w - leftPos;
-  else if (newPos < 0) dragDist = -leftPos;
+  let newPos = currPxPos + tempDragDist;
+  if (newPos > w) dragDist = w - currPxPos;
+  else if (newPos < 0) dragDist = -currPxPos;
   else {
     dragDist = tempDragDist;
 
@@ -193,7 +192,7 @@ function mouseDragged() {
 }
 
 function mouseReleased() {
-  leftPos = leftPos + dragDist;
+  currPxPos = currPxPos + dragDist;
   dragDist = 0;
   bResume = true;
 }
@@ -201,36 +200,47 @@ function mouseReleased() {
 
 function draw() {
   translate(0, gap);
-  if (bMusicPlaying) {
-    background(255, 0, 0);
-    fill(0, 128, 255);
-    leftPos = currPosA*pxPerPos+(music.time()*1000-currMsA)*currPxPerMs;
-    image(schematic, chc - leftPos, 0);
-    fill(255, 255, 0);
-    rect(chc, 0, 4, schematic.height);
-  }
-  else if (!bResume) {
-    background(255, 0, 0);
-    fill(0, 128, 255);
-    image(schematic, chc - (leftPos + dragDist), 0);
-    fill(255, 255, 0);
-    rect(chc, 0, 4, schematic.height);
-  }
-  else {
-    bResume = false;
+    
 
-    music.play().time(leftPos * secPerPx);
-    bMusicPlaying = true;
-    //music.play(0, music.rate(), 1.0, leftPos * secPerPx);
+  if (bMusicPlaying) {
+    background(0);
+
+    fill(0, 128, 255);
+    currPxPos = currPosA*pxPerPos+(music.time()*1000-currMsA)*currPxPerMs;
+    image(schematic, chc - currPxPos, 0);
+    fill(255, 255, 0);
+    rect(chc, 0, 4, schematic.height);
+  }
+  else if (bResume) {
+    bResume = false;
+    let targetPos = currPxPos/pxPerPos; 
+    let i =0;
+ 
+    while ((i < claves.length) && (claves[i].getNum('posB') < targetPos )) i++;
+  
+    setClave(i);
+    targetSec =  ((currPxPos - currPosA*pxPerPos)/currPxPerMs+currMsA)/1000;
+   music.play().time(targetSec);
+  
+   bMusicPlaying = true;
+  }
+  else  {
+    background(0);
+
+    fill(0, 128, 255);
+    image(schematic, chc - (currPxPos + dragDist), 0);
+    fill(255, 255, 0);
+    rect(chc, 0, 4, schematic.height);
+    
   }
 
 fill(255);
   textSize(20);
-  text('cTotal '+cTotal+', claves length '+claves.length+' currClave '+currClave+' currPos '+int(leftPos/pxPerPos)+' ms '+int(music.time()*1000), 10, 22);//(leftPos + dragDist)*secPerPx, 10, 22);
+  text('cTotal '+cTotal+', claves length '+claves.length+' currClave '+currClave+' currPos '+int(currPxPos/pxPerPos)+' ms '+int(music.time()*1000)+' targetms'+targetMs, 10, 22);//(currPxPos + dragDist)*secPerPx, 10, 22);
 
   translate((cw - schematic_split.width * zoom) / 2, schematic.height + gap);
   scale(zoom, zoom);
   image(schematic_split, 0, 0);
-  
+
   
 }
