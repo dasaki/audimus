@@ -133,7 +133,7 @@ function setup() {
 
   button = createButton('PLAY');
   button.size(80,30);
-  button.position(gap, ch-40);
+  button.position(gap, ch-30);
   button.mousePressed(playPause);
 }
 
