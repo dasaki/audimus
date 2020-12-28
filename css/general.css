@@ -1,0 +1,281 @@
+
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/lato-v17-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Lato Regular'), local('Lato-Regular'),
+         url('../fonts/lato-v17-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/lato-v17-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('../fonts/lato-v17-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/lato-v17-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/lato-v17-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
+  }
+  
+*, body, a, p, h1, h2, h3, h4, h5, div {
+     font-family: 'Lato';
+}
+
+
+html {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    
+    background: #ffffff;
+     background-color:#fff;		
+    color: #000000;
+
+    overflow-x: hidden;
+   width: 100%;
+  }
+
+
+
+.w3-padding {
+    padding: 16px 16px;
+}
+
+input:focus select:focus {
+    outline:none;
+}
+
+textarea {
+    display: block;
+    border-style: hidden;
+    outline: none;
+    resize: none;
+    width: 100%;
+   
+}
+
+.w3-button {
+    transition: .5s;
+}
+
+.w3-top {
+    z-index: 500;
+}
+.w3-bar, .w3-top {
+    overflow: visible;
+
+}
+
+.w3-card {button
+    padding: 4px 8px;
+}
+
+/*  ------------ for the select arows --------------- */ 
+select {
+    appearance:none;
+    
+}
+
+.select {
+    overflow: hidden; 
+    position: relative;
+    display: block;
+}
+.select:after {
+    content:"\f107";
+    font-size: 35px;
+    font-family: FontAwesome;
+    
+    padding: 0px 16px;
+    position: absolute; right: 0; top: 0;
+    z-index: 1;
+    text-align: center;
+  
+    height: 100%;    
+    pointer-events: none;
+    box-sizing: border-box;   
+}
+[disab="1"] {
+    color:lightgray;
+}
+
+
+
+/* -------------------------------------------------- */
+select:focus {
+    background-color: #e6e6e6; /* very light gray */
+}
+
+.disabled { 
+    pointer-events: none;
+    touch-action: none;
+    border: 3px solid lightgrey!important; 
+    color: lightgrey;
+   }
+  
+
+#lang-selector {
+    background-color: white;
+    border-style: none; 
+    outline-style: none;
+}
+
+#lang-selector:focus {
+    outline-style: none;
+    outline-color: #ffffff;
+}
+
+
+
+@keyframes autoplay6 {
+    0% {opacity: 0.0}
+    4% {opacity: 1.0}
+    25% {opacity: 1.0}
+    27% {opacity: 0.0}
+    100% {opacity: 0.0}
+}
+
+#opinions {
+    background-color: rgba(0,0,0,.6);
+  
+    color: white;
+    width: 300px;
+    height:235px;
+    position: relative;
+    top: 16px;
+    vertical-align: middle;
+      
+    padding: 0px;
+    margin: 0px;
+
+}
+
+
+.opinion h5 {
+    font-size: 14px;
+    padding-bottom: 16px;
+}
+.opinion h6 {
+    font-size: 12px;
+    text-align: right;
+}
+
+.opinion {
+    padding: 10px;
+    margin: 0px;
+    width: inherit;
+    height: inherit;
+    animation: 24s autoplay6 infinite linear;
+    opacity: 0.0;
+    position:absolute;
+    top:0px;
+    left: 0px;
+   
+  
+
+    overflow:hidden;
+
+    
+    display: flex;
+  justify-content: center;
+  align-items: center; 
+
+}
+
+
+
+
+#opinions > *:nth-child(1) {animation-delay: 0s}
+#opinions > *:nth-child(2) {animation-delay: 6s}
+#opinions > *:nth-child(3) {animation-delay: 12s}
+#opinions > *:nth-child(4) {animation-delay: 18s}
+
+blockquote::before {
+    content: open-quote;
+  }
+  blockquote::after {
+    content: close-quote;
+  }
+  blockquote {
+    quotes: "“" "”" "‘" "’";
+  }
+  
+  .player-selector {
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+ }
+
+  .player-selector {
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+ }
+
+ #player-selection-div {
+     
+    padding: 0px!important;
+    margin: 0px!important;
+  }
+
+
+
+  #video {
+    opacity:0.75;
+    width:150%;
+    overflow: hidden;
+    margin-top: 32px;
+}
+
+
+  @media (min-width:450px) {
+  #video {
+        width:100%;
+    }
+  }
+
+  @media (min-width:769px) {
+    .video {
+        width:100%;
+    }
+   
+    .w3-card {
+        padding: 16px 32px;
+    }
+    .spacer {
+        height: 290px;
+    }
+    #opinions {
+        width: 500px;
+        height:350px;
+        
+    }  
+    .opinion {
+        width: inherit;
+        height: inherit;   
+        padding: 20px;
+    }
+    
+    .opinion h5 {
+        font-size: 22px;
+    }
+    .opinion h6 {
+        font-size: 18px;
+    }
+
+  }
+
+  .debug {
+    border-style: solid;
+    border-color: blue;
+    border-width: 1px;
+    background-color: brown;
+    color: chartreuse;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    padding: 0px!important;
+    margin: 0px!important;
+}

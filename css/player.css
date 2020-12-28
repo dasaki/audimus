@@ -1,0 +1,70 @@
+
+canvas { 
+  height: 500px; 
+}
+.player-div {
+  text-align: center;
+}
+
+.player-selector  {
+  background-color: white;
+  border: 3px solid black!important; 
+    border-color: black;
+    color: black;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+  font-size: 20px!important;
+}
+
+
+
+#player-controls-div {
+  display: inline-block; 
+  padding: 0px 0px 0px 16px;
+  margin-top: auto;
+
+  border-color: black;
+  vertical-align: bottom;
+}
+#player-controls-div>button {
+  width:100px;
+  background-color: white;
+
+  border: 3px solid rgb(0, 0, 0)!important; 
+    border-color: black;
+   
+   padding: 10px;
+   font-size: 20px!important;
+   cursor: pointer;
+   font-size: 20px!important;
+}
+
+#player-controls-div>button.disabled { 
+  pointer-events: none;
+  touch-action: none;
+  border: 3px solid lightgrey!important; 
+  color: lightgrey;
+ }
+
+
+
+#player-controls-div>button:focus {
+  background-color: #e6e6e6; /* very light gray */
+}
+
+#player-selection-div {
+  padding: 16px;
+  vertical-align: middle;
+}
+
+.selector-div {
+  text-align: center;
+}
+
+@media (max-width:992px) {
+  .player-selector-title {
+    text-align: left;
+    padding-left: 10px;
+  }
+}
