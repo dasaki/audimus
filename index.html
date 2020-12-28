@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>AUDIMUS :|</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" type='text/css' href="https://fonts.googleapis.com/css?family=Lato:400,700" />
+  <link rel="stylesheet" type='text/css' href="css/reset.css" />
+  <link rel="stylesheet" type='text/css' href="css/w3.css" />
+  <link rel="stylesheet" type='text/css' href="css/player.css" />
+  <link rel="stylesheet" type='text/css' href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type='text/css' href="css/general.css" />
+
+
+  <script src="js/libs/p5.min.js"></script>
+  <script src="js/libs/jquery-2.2.4.min.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/langselect.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-card">
+      <a href="#home" class="w3-bar-item"><img id="logoImg" src="images/logo.svg" alt="AUDIMUS |:" height="23px"></a>
+      <div id="lang-div" class="w3-right w3-bar-item ">
+        <form style="vertical-align: middle;  position: relative; margin: auto auto;">
+          <select id="lang-selector" style="position: relative; margin: auto auto;">
+            <option value="en">EN</option>
+            <option value="es" selected>ES</option>
+          </select>
+        </form>
+      </div>
+
+      <!-- Float links to the right. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+        <a href="#auditions" lang="en" class="w3-bar-item w3-button">Auditions</a>
+        <a href="#about" lang="en" class="w3-bar-item w3-button">About</a>
+        <a href="#contact" lang="en" class="w3-bar-item w3-button">Contact</a>
+        <a href="#auditions" lang="es" class="w3-bar-item w3-button">Audiciones</a>
+        <a href="#about" lang="es" class="w3-bar-item w3-button">Nosotros</a>
+        <a href="#contact" lang="es" class="w3-bar-item w3-button">Contacto</a>
+
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="w3-display-container w3-content w3-wide" style="max-width:2000px;" id="home">
+
+    <video id="video" autoplay muted loop poster="videos/background.jpg">
+      <source src="videos/background.mp4" type="video/mp4">
+      <source src="videos/background.ogg" type="video/ogg">
+      <source src="videos/background.webm" type="video/webm">
+      Your browser does not support HTML5 video.
+    </video>
+
+    <div class="w3-display-middle w3-center">
+
+
+      <!-- Opinions Section -->
+
+      <div class="w3-padding">
+        <div class="w3-padding-top w3-container w3-center">
+
+          <div class="w3-padding-16 w3-center">
+            <div id="opinions" class="">
+              <div class="w3-center opinion">
+                <div class="opinion-content">
+                  <h5>
+                    <blockquote lang="en">Simply magnificent, not only for the enthusiast who wants to deepen the
+                      knowledge of
+                      Classical Music,
+                      but also for students and professionals who want to have a working tool</blockquote>
+                    <blockquote lang="es">Sencillamente magníficos, tanto para el aficionado que quiera profundizar en
+                      el
+                      conocimiento de la Música Clásica, como para los estudiantes y profesionales que quieran disponer
+                      de
+                      una herramienta de trabajo</blockquote>
+                  </h5>
+                  <h6>Jesús López Cobos</h6>
+                </div>
+              </div>
+              <div class="w3-center opinion">
+                <div class="opinion-content">
+                  <h5>
+                    <blockquote lang="en"> Who have the vocation for teaching are aware that the road is hard, and rock
+                      one. Works
+                      like yours do much good and are necessary</blockquote>
+                    <blockquote lang="es"> Los que tenemos vocación por la docencia somos conscientes de que el camino
+                      es árduo, nada de comodidades. Trabajos como el suyo hacen mucho bien y son necesarios
+                    </blockquote>
+                  </h5>
+                  <h6>Armando Blanquer Ponsoda</h6>
+                </div>
+              </div>
+              <div class="w3-center opinion">
+                <div class="opinion-content">
+                  <h5>
+                    <blockquote lang="en">Extraordinarily useful for any lover of music who want to extend their
+                      knowledge
+                      base for
+                      to
+                      understand better field, because it is a rigorous and responsible work</blockquote>
+                    <blockquote lang="es">De una utilidad extraordinaria para toda persona amante de la música y que
+                      desee
+                      profundizar en sus conocimientos más básicos para su mayor comprensión</blockquote>
+                  </h5>
+                  <h6>Antoni Ros Marbá</h6>
+                </div>
+              </div>
+              <div class="w3-center opinion">
+                <div class="opinion-content">
+                  <h5>
+                    <blockquote lang="en">A useful and interesting vehicle for the training of music students, as well
+                      as
+                      a
+                      practical
+                      supplement for the amateur as well as the profesional</blockquote>
+                    <blockquote lang="es">Un medio muy útil e interesante para la formación de estudiantes de música,
+                      así
+                      como un eficaz complemento tanto para el melómano como para el músico profesional</blockquote>
+                  </h5>
+                  <h6>Solomon Mikowsky</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Page content -->
+  <div style="background-color: white;">
+    <div class="w3-content" style="max-width:1564px;">
+      <!-- Auditions Section -->
+
+      <div class="w3-padding" id="auditions">
+
+        <div class="w3-container w3-padding-32">
+          <h3 lang="en" class="w3-border-bottom w3-border-grey w3-padding-16">Auditions</h3>
+          <h3 lang="es" class="w3-border-bottom w3-border-grey w3-padding-16">Audiciones</h3>
+          <div style="position: relative; margin: 0 auto;">
+            <div id="player-selection-div" class="w3-row-padding w3-center">
+              <div class="selector-div w3-col l4 m6 w3-margin-bottom ">
+                <h4 lang="en" class="player-selector-title">Composer</h4>
+                <h4 lang="es" class="player-selector-title">Compositor</h4>
+                <label class="select">
+                  <select id="composer-selector" class="player-selector" onchange="loadPieces()">
+                  </select></label>
+              </div>
+              <div class="w3-col l4 m6 w3-margin-bottom selector-div">
+                <h4 lang="en" class="player-selector-title">Work</h4>
+                <h4 lang="es" class="player-selector-title">Obra</h4>
+                <label class="select">
+                  <select id="piece-selector" class="player-selector disabled" onchange="loadMovements()">
+
+                  </select></label>
+              </div>
+
+              <div class="selector-div w3-col l4 m6 w3-margin-bottom">
+
+                <span style="display: flex; align-items: stretch;">
+                  <div style="display: inline-block; flex-grow: 1;">
+                    <h4 lang="en" class="player-selector-title">Movement</h4>
+                    <h4 lang="es" class="player-selector-title">Movimiento</h4>
+                    <label class="select">
+                      <select id="movement-selector" class="player-selector disabled" onchange="reLoad()">
+
+                      </select>
+                    </label>
+                  </div>
+                  <div id="player-controls-div" class="w3-center"></div>
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div id="player-canvas-div" width="100%" style="max-width:1468px;position: relative;margin: 0 auto;"></div>
+
+    <div class="w3-container w3-center">
+      <p lang="en">Music taken directly from old vinyl records that are Public Domain.</p>
+      <p lang="es">Música obtenida directamente de discos de vinilo con grabaciones antiguas de Dominio Público.</p>
+    </div>
+
+
+    <!-- About Section -->
+    <div class="w3-content" style="max-width:1564px;">
+      <div class="w3-padding" id="about">
+        <div class="w3-container w3-padding-32">
+          <h3 lang="en" class="w3-border-bottom w3-border-grey w3-padding-16">About</h3>
+          <h3 lang="es" class="w3-border-bottom w3-border-grey w3-padding-16">Nosotros</h3>
+
+          <div class="w3-center">
+            <div class="w3-justify  w3-row-padding" style="position: relative; margin: 0 auto; max-width:1000px;">
+
+              <div class="w3-col l6 m6 w3-margin-bottom">
+                <br>
+                <img src="/images/jesus.jpg" alt="Jesús Sanz Arribas" style="width:100%">
+                <h3>Jesús Sanz Arribas</h3>
+                <p lang="en" class="w3-opacity  w3-margin-bottom">Music Analyst and Professor</p>
+                <p lang="es" class="w3-opacity  w3-margin-bottom">Analista y Profesor de Música</p>
+                <p lang="en">The author of these “Analytical Musical Schematics”, a teacher of music, with a
+                  long
+                  career which has included Elementary Schools, High Schools and specialist centres (Music Schools and
+                  Conservatories).
+                  He has carried out, and still continues to do so, important work in imparting specific courses on
+                  analytical-intellectual listening for specialist teachers, who are shown these novel teaching
+                  resources, and the efficient results which are obtained from their application to the understanding of
+                  classical
+                  music, through the works of the great composers.</p>
+                <p lang="es">El autor de estos “Esquemas Musicales Analíticos”, profesor de
+                  música, con una dilatada trayectoria tanto en Etapas Elementales de la
+                  Enseñanza, como en Institutos de Bachillerato y Centros especializados -Escuelas de Música y
+                  Conservatorios-.
+                  Ha efectuado y sigue efectuando una importante labor en la impartición de cursillos específicos sobre
+                  la audición analítico-intelectiva para el profesorado de la especialidad, mostrando al mismo estos
+                  novedosos recursos didácticos, y los eficientes resultados que se obtienen de su aplicación para el
+                  entendimiento de la música clásica, a través de obras de grandes autores.</p>
+                <br>
+              </div>
+              <div class="w3-col l6 m6 w3-margin-bottom">
+                <br>
+                <img src="/images/david.jpg" alt="David Sanz Kirbis" style="width:100%">
+                <h3>David Sanz Kirbis</h3>
+                <p lang="en" class="w3-opacity  w3-margin-bottom">Developer and R&D Engineer</p>
+                <p lang="es" class="w3-opacity  w3-margin-bottom">Desarrollador e Ingeniero en I+D</p>
+                <p lang="en">Computer expert and notable listener, set out to create a computer software which is
+                  extremely simple
+                  to
+                  handle, and of a surprising interactive versatility, which he called “AUDIMUS“. The choice of this
+                  word
+                  has
+                  a double meaning: the first, since it is a Latin verb meaning “we hear”, and the second, as it makes
+                  reference to the Spanish words “AUDIciones MUSicales” (Musical Auditions)</p>
+                <p lang="es">Experto en informática y notable oyente, creó “ex profeso” un programa informático, de
+                  extremada sencillez en su manejo, y de sorprendente versatilidad interactiva, al que denominó
+                  “AUDIMUS”. La elección de esta palabra tiene doble sentido: uno, por ser un verbo latino que significa
+                  “oímos“, y otro, por hacer referencia a las palabras “AUDIciones MUSicales”</p>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Contact Section -->
+    <div class="w3-content" style="max-width:1564px;">
+      <div class="w3-padding" id="contact">
+        <div class="w3-container w3-padding-32">
+          <h3 lang="en" class="w3-border-bottom w3-border-grey w3-padding-16">Contact</h3>
+          <h3 lang="es" class="w3-border-bottom w3-border-grey w3-padding-16">Contacto</h3>
+          <p></p>
+          <div class="w3-center">
+
+            <form class="w3-margin-top" style="position: relative; margin: 0 auto; max-width:1000px;"
+              action="contact.php" method="post" target="_blank">
+              <input class="w3-input w3-border" type="text" placeholder="Name" required name="visitor_name"
+                pattern=[A-Z\sa-z]{3,20}>
+              <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required
+                name="visitor_email">
+              <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required
+                name="email_title">
+
+              <input id="input-lang" name="visitor_lang" type="hidden" value="es">
+              <div class="w3-input w3-section w3-border ">
+
+                <textarea width="100%" rows="15" id="message" name="visitor_message"
+                  placeholder="Say whatever you want." required></textarea>
+              </div>
+              <button class="w3-button w3-black w3-section" type="submit">
+                <i class="fa fa-paper-plane"></i> <span lang="en">SEND MESSAGE</span>
+                <span lang="es">ENVIAR MENSAJE</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- End page content -->
+  </div>
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="w3-center w3-black w3-padding-16 w3-small">
+    <p><span lang="en"> Designed by </span><span lang="es"> Diseñado por </span><a
+        href="https://raqueltorresdesign.com/" title="Raquel Torres Design" target="_blank"
+        class="w3-hover-text-gray"><b>Raquel Torres Design</b></a></p>
+  </footer>
+
+</body>
+
+</html>
